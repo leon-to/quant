@@ -1,0 +1,5 @@
+true downs are much higher than true ups
+total return & compound anual growth rate
+
+trade analysis
+sharpe ratio > 2 -> doing very good 
