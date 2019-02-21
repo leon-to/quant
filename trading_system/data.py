@@ -105,12 +105,8 @@ class HistoricCSVDataHandler(DataHandler):
             # load csv file with no header info
             self.symbol_data[s] = pd.io.parsers.read_csv(
                 os.path.join(self.csv_dir, '%s.csv' % s),
-                header=0, index_col=0, parse_dates=True,
-                names=[
-                    'datetime', 'open', 'high',
-                    'low', 'close', 'volume', 'adj_close'
-                ]
-            ).sort()
+                header=0, index_col=0, parse_dates=True
+            )
             
         # combine index to pad forward values
         if comb_index is None:

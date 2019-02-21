@@ -3,3 +3,8 @@ total return & compound anual growth rate
 
 trade analysis
 sharpe ratio > 2 -> doing very good 
+
+hurst -> gb, mearn-reverting, trend
+forecast -> 2 previous return to predict future return
+
+half kelly criterion -> leverage ratio
