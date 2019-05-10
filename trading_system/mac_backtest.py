@@ -24,7 +24,7 @@ def main():
     backtest.simulate_trading()
 
 def read_csv():
-    return pd.io.parsers.read_csv(
+    return pd.read_csv(
             'AAPL.csv',
             header=0, index_col=0, parse_dates=True
             )

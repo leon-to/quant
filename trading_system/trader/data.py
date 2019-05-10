@@ -205,3 +205,6 @@ class HistoricCSVDataHandler(DataHandler):
                     self.latest_symbol_data[s].append(bar)
         
         self.events.put(MarketEvent())
+        
+class OnlineCSVDataHandler(HistoricCSVDataHandler)
+    def __init__()

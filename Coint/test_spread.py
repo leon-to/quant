@@ -21,7 +21,7 @@ b = ols_result.params['MSFT']
 
 
 
-data = data['2018']
+data = data['2017']
 
 s1 = data['ADBE']
 s2 = data['MSFT']
@@ -32,7 +32,7 @@ plt.scatter(s1, s2)
 ratios = pd.DataFrame(index=data.index, columns=['b'])
 
 # compute spread
-lookback = 40
+lookback = 15
 
 for t in data.index:
     if t < data.index[0] + timedelta(days=lookback):
@@ -54,13 +54,16 @@ plt.figure()
 zscore.plot()
 
 money = 0
+profit = pd.DataFrame(index=zscore.index, columns=['return'])
+profit = profit['return']
+profit['return'] = 0
 prev_money = 0
 q = 100
 invested = False
 countS1 = 0
 countS2 = 0
 
-z_entry = 1.5
+z_entry = 2
 z_exit = 0.75
 
 for i in zscore.index:
@@ -89,4 +92,6 @@ for i in zscore.index:
         countS2 = 0
         print('Exit pos %s %s %s %s'%(money,ratios[i], countS1,countS2))
         invested = False
-        
+
+if invested==True:
+    money += q*(s1[i] * countS1 + s2[i] * countS2)
